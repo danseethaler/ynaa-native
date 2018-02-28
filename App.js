@@ -1,21 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Dimensions} from 'react-native';
+import {Font} from 'expo';
+import {ThemeProvider} from 'glamorous-native';
+
+import Landing from './src/screens/Landing';
+
+var {height, width} = Dimensions.get('window');
 
 export default class App extends React.Component {
+  state = {
+    fontsLoaded: false,
+  };
+
+  async componentWillMount() {
+    await Font.loadAsync({});
+
+    this.setState({fontsLoaded: true});
+  }
+
   render() {
+    if (!this.state.fontsLoaded) {
+      return null;
+    }
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <ThemeProvider
+        theme={{
+          colors: {
+            primary: '#25384f',
+            secondary: '#00bcd4',
+          },
+          dimensions: {height, width},
+        }}
+      >
+        <Landing />
+      </ThemeProvider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
