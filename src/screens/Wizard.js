@@ -17,34 +17,28 @@ export default ({navigation}) => (
       <Container
         style={{
           flex: 1,
-          flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'flex-end',
+          flexWrap: 'wrap',
         }}
       >
         <Image
-          source={require('../assets/bank.png')}
+          source={require('../../assets/icons/bank.png')}
           style={{
             width: 70,
             height: 70,
+            margin: 30,
           }}
         />
-        <Text
-          style={{
-            marginLeft: 20,
-          }}
-        >
-          Grab your recent bank statements and let's get started.
-        </Text>
+        <Text>Grab your recent bank statements and let's get started.</Text>
       </Container>
     </Container>
     <Container>
       <Button
         primary
         full
-        onPress={() => {
-          navigation.goBack();
-        }}
-        text="Got 'em ->"
+        onPress={() => navigation.goBack()}
+        text="I'm ready"
       />
     </Container>
   </Container>

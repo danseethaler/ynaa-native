@@ -14,5 +14,10 @@ export const colors = {
 
 export const mapper = ob => props => {
   const matches = Object.keys(ob).filter(key => !!props[key]);
+
+  if (matches.length === 0) {
+    return ob._default || null;
+  }
+
   return matches.reduce((styles, key) => ({...styles, ...ob[key]}), {});
 };
