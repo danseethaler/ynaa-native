@@ -1,10 +1,16 @@
 import glamorous from 'glamorous-native';
-import {colors} from '../config/styles';
+import {colors, mapper} from '../config/styles';
 
-export const Container = glamorous.view({
-  display: 'flex',
-  flexGrow: 1,
-  backgroundColor: colors.white,
-  alignItems: 'center',
-  justifyContent: 'center',
-});
+export const Container = glamorous.view(
+  {
+    display: 'flex',
+    backgroundColor: colors.white,
+    justifyContent: 'center',
+  },
+  mapper({
+    outer: {
+      flex: 1,
+      padding: 20,
+    },
+  })
+);

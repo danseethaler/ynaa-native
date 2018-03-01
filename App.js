@@ -2,8 +2,15 @@ import React from 'react';
 import {Dimensions} from 'react-native';
 import {Font} from 'expo';
 import {ThemeProvider} from 'glamorous-native';
+import {StackNavigator} from 'react-navigation';
 
 import Landing from './src/screens/Landing';
+import Wizard from './src/screens/Wizard';
+
+const Navigator = StackNavigator({
+  Home: {screen: Landing, navigationOptions: {header: null}},
+  Wizard: {screen: Wizard, navigationOptions: {header: null}},
+});
 
 var {height, width} = Dimensions.get('window');
 
@@ -32,7 +39,7 @@ export default class App extends React.Component {
           dimensions: {height, width},
         }}
       >
-        <Landing />
+        <Navigator />
       </ThemeProvider>
     );
   }

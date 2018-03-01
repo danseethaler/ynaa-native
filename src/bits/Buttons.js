@@ -6,27 +6,26 @@ import {SPACER_PADDING, mapper, colors} from '../config/styles';
 const ButtonContainer = glamorous.touchableHighlight(
   {
     alignItems: 'center',
-    padding: 10,
     borderRadius: 5,
     paddingVertical: 16,
-    paddingHorizontal: 25,
-    marginBottom: SPACER_PADDING,
-  },
-  ({theme, full}) => {
-    const styles = {};
-
-    if (full) {
-      styles.width = theme.dimensions.width - SPACER_PADDING * 2;
-    }
-    return styles;
+    borderWidth: 2,
+    borderColor: colors.primary,
   },
   mapper({
+    full: {
+      alignSelf: 'stretch',
+    },
+    padBottom: {
+      marginBottom: SPACER_PADDING,
+    },
+    padTop: {
+      marginTop: SPACER_PADDING,
+    },
     primary: {
       backgroundColor: colors.primary,
     },
     secondary: {
       backgroundColor: colors.white,
-      borderWidth: 2,
       borderColor: colors.secondary,
     },
     tertiary: {
@@ -57,7 +56,18 @@ const ButtonText = glamorous.text(
 );
 
 export const Button = ({text, ...props}) => (
-  <ButtonContainer {...props}>
+  <ButtonContainer
+    {...mapper({
+      primary: {
+        underlayColor: colors.primary,
+      },
+      secondary: {
+        underlayColor: 'rgba(0, 0, 0, 0)',
+        activeOpacity: 0.5,
+      },
+    })(props)}
+    {...props}
+  >
     <ButtonText {...props}>{text}</ButtonText>
   </ButtonContainer>
 );
