@@ -1,4 +1,5 @@
 import React from 'react';
+import {StackNavigator} from 'react-navigation';
 import {View} from 'react-native';
 
 import {Container} from '../bits/Containers';
@@ -25,7 +26,7 @@ export default ({navigation}) => (
         full
         secondary
         onPress={() => {
-          console.log('rockon');
+          navigation.navigate('Intro');
         }}
       />
     </Container>
