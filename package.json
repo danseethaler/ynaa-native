@@ -8,5 +8,14 @@
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-navigation": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.40",
+    "@types/react-native": "^0.52.16",
+    "react-native-typescript-transformer": "^1.2.3",
+    "typescript": "^2.7.2"
+  },
+  "scripts": {
+    "start": "exp start --ios"
   }
 }

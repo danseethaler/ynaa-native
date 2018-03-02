@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {StackNavigator} from 'react-navigation';
 import {View} from 'react-native';
 
